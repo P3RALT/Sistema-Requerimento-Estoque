@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Requerimento de Estoque</title>
+    <link rel="stylesheet" href="Page/CSS/EstiloFrame1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container-req">
+    <div class="sidebar">
+        <h2>IMOBILIÁRIA<br><span>Lopes Contagem</span></h2>
+        
+        <div class="profile">
+            <p><b id="userName">Usuário</b></p>
+            <p id="userEmail">email@exemplo.com</p>
+        </div>
+        
+        <div class="cart-section">
+            <h3>Itens Selecionados</h3>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Nenhum item adicionado</p>
+                </div>
+            </div>
+            
+            <button type="button" class="send-btn" id="sendBtn">
+                <i class="fas fa-paper-plane"></i> ENVIAR
+            </button>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>REQUERIMENTO ESTOQUE</h1>
+        <form id="requisitionForm">
+            <div class="item">
+                <label>Materiais de Escritório</label>
+                <input type="text" name="escritorio" id="escritorioInput" placeholder="Digite ou selecione" list="escritorioItems">
+                <datalist id="escritorioItems"></datalist>
+                <input type="number" name="qtd1" id="escritorioQtd" placeholder="Qtd" min="1">
+            </div>
+            <div class="item">
+                <label>Suprimentos de Escritório</label>
+                <input type="text" name="suprimentos" id="suprimentosInput" placeholder="Digite ou selecione" list="suprimentosItems">
+                <datalist id="suprimentosItems"></datalist>
+                <input type="number" name="qtd2" id="suprimentosQtd" placeholder="Qtd" min="1">
+            </div>
+            <div class="item">
+                <label>Materiais de Periféricos</label>
+                <input type="text" name="perifericos" id="perifericosInput" placeholder="Digite ou selecione" list="perifericosItems">
+                <datalist id="perifericosItems"></datalist>
+                <input type="number" name="qtd3" id="perifericosQtd" placeholder="Qtd" min="1">
+            </div>
+            <div class="item">
+                <label>Troca Tonner</label>
+                <input type="text" name="tonner" id="tonnerInput" placeholder="Digite ou selecione" list="tonnerItems">
+                <datalist id="tonnerItems"></datalist>
+                <input type="number" name="qtd4" id="tonnerQtd" placeholder="Qtd" min="1">
+            </div>
+            <button type="button" id="addBtn">
+                <i class="fas fa-plus"></i> ADICIONAR
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Scripts -->
+ 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="Page/src/Funcionalidade/enviarEmail.js"></script>
+<script src="Page/src/Funcionalidade/carrinho.js"></script>
+<script src="Page/src/Funcionalidade/inventario.js"></script>
+
+<script>
+    document.getElementById('userName').textContent = localStorage.getItem('usuarioNome') || 'Usuário';
+    document.getElementById('userEmail').textContent = localStorage.getItem('usuarioEmail') || 'email@exemplo.com';
+</script>
+</body>
+</html>
